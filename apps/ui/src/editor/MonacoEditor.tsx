@@ -1,6 +1,7 @@
 ﻿import * as monaco from "monaco-editor";
 import { useEffect, useRef } from "react";
 import "./monacoWorkers";
+import { syncMonacoThemeWithDom } from "../utils/monacoTheme";
 
 type Props = {
   value: string;
@@ -19,6 +20,7 @@ export default function MonacoEditor({
 
   useEffect(() => {
     if (!elRef.current) return;
+    syncMonacoThemeWithDom();
 
     modelRef.current = monaco.editor.createModel(value, language);
 

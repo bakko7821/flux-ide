@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 import { FolderBar } from "./components/FolderBar";
 import { TitleBar } from "./components/TitleBar/TitleBar";
+import MonacoEditor from "./editor/MonacoEditor";
 import { initSystemThemeSync } from "./utils/theme";
 // import CrossIcon from "../src/assets/icons/ui/CrossFilled.svg"
 
@@ -52,8 +53,15 @@ export default function App() {
       <TitleBar></TitleBar>
       <main className="w-full h-full flex flex-row">
         <FolderBar />
+        <div className="w-full h-full flex flex-col">
+          <div className="w-full bg-panel p-3"></div>
+          <MonacoEditor
+            value={value}
+            onChange={setValue}
+            language="typescript"
+          />
+        </div>
       </main>
-      {/* <MonacoEditor value={value} onChange={setValue} language="typescript" /> */}
     </div>
     // <div className="w-screen bg-red-300 flex flex-col items-start justify-start">
     //   <div className="w-full items-center justify-between flex flex-row">
