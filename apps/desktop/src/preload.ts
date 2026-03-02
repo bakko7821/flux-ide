@@ -7,9 +7,11 @@ type InvokeKey = keyof IpcInvokeMap;
 const api = {
   invoke: async <K extends InvokeKey>(
     channel: K,
-    args: Parameters<IpcInvokeMap[K]>[0],
-  ): Promise<ReturnType<IpcInvokeMap[K]>> => {
-    return ipcRenderer.invoke(channel as string, args);
+    ...args: Parameters<IpcInvokeMap[K]> extends []
+      ? []
+      : [Parameters<IpcInvokeMap[K]>[0]]
+  ): Promise<Awaited<ReturnType<IpcInvokeMap[K]>>> => {
+    return ipcRenderer.invoke(channel as string, ...(args as unknown[]));
   },
 
   window: {
