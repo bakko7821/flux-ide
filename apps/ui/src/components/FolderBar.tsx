@@ -1,10 +1,13 @@
-import { NavMenu } from "./NavMenu/NavMenu";
+import { Outlet } from "react-router-dom";
+import { FolderNavMenu } from "./FolderNavMenu/FolderNavMenu";
 
 export const FolderBar = () => {
   return (
     <div className="bg-panel h-full min-w-85 flex flex-row">
-      <NavMenu />
-      <div className="w-full h-full flex flex-col"></div>
+      <FolderNavMenu />
+      <div className="w-full h-full flex flex-col min-h-0">
+        <Outlet />
+      </div>
     </div>
   );
 };

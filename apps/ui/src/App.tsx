@@ -1,8 +1,8 @@
 ﻿import { useEffect, useState } from "react";
-import { FolderBar } from "./components/FolderBar";
 import { TitleBar } from "./components/TitleBar/TitleBar";
 import MonacoEditor from "./editor/MonacoEditor";
 import { initSystemThemeSync } from "./utils/theme";
+import { AppRoutes } from "./router";
 
 export default function App() {
   const [value, setValue] = useState("// Open a file path and load it 🚀\n");
@@ -38,9 +38,9 @@ export default function App() {
     <div className="w-screen h-screen bg-bg flex flex-col">
       <TitleBar></TitleBar>
       <main className="w-full flex-1 min-h-0 flex flex-row">
-        <FolderBar />
+        <AppRoutes />
         <div className="w-full h-full flex flex-col">
-          <div className="w-full bg-panel p-3"></div>
+          <div className="w-full bg-panel min-h-8"></div>
           <MonacoEditor
             value={value}
             onChange={setValue}
