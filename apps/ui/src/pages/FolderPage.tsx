@@ -83,15 +83,20 @@ export default function FolderPage() {
       </div>
 
       {!folderPath || !tree ? (
-        <div className="p-1 px-2 flex gap-2">
+        <div className="p-1 px-2 flex gap-2 flex-col pt-3">
           <button
-            className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/5"
+            className="bg-accent text-bg text-base p-2 rounded-lg font-medium hover:bg-accent-hover active:bg-accent-pressed"
             onClick={openFolder}
           >
             Открыть папку
           </button>
+          <div className="w-full flex flex-row items-center justify-center gap-2">
+            <span className="w-full h-px bg-muted"></span>
+            <p className="text-base font-medium uppercase text-fg">или</p>
+            <span className="w-full h-px bg-muted"></span>
+          </div>
           <button
-            className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/5"
+            className="bg-accent text-bg text-base p-2 rounded-lg font-medium hover:bg-accent-hover active:bg-accent-pressed"
             onClick={openFile}
           >
             Открыть файл
